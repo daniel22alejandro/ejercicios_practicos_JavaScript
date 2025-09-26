@@ -19,6 +19,12 @@ async function verificarPalindromo() {
     // Paso 1: Solicitar la frase o la palabra al usuario usando 'await'
     const input = await preguntar("Ingrese una palabra o frase: ");
 
+    // ------ PUNTO DE INICIO DE MEDICION DE TIEMPO -----
+    const inicioTiempo = performance.now();
+
+
+
+
     // Paso 2: Limpiar el texto ingresado (robusta contra espacios, mayúsculas y puntuación)
     const texto_limpio = input
         .toLowerCase()
@@ -37,6 +43,10 @@ async function verificarPalindromo() {
          console.log(`   Limpio: ${texto_limpio}`);
          console.log(`Invertido: ${texto_invertido}`);
     }
+
+        // ------ PUNTO DE FINALIZACION DE MEDICION DE TIEMPO -----
+    const finTiempo = performance.now();
+    console.log(`\nTiempo de ejecución: ${(finTiempo - inicioTiempo).toFixed(4)} ms`);
 
     rl.close();
 }
